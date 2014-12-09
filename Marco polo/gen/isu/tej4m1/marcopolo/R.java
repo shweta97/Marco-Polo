@@ -246,14 +246,15 @@ containing a value of this type.
     }
     public static final class drawable {
         public static final int addnewdevice=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int keys=0x7f020002;
-        public static final int listofdevices=0x7f020003;
-        public static final int other=0x7f020004;
-        public static final int remote=0x7f020005;
+        public static final int ic_action_new=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int keys=0x7f020003;
+        public static final int listofdevices=0x7f020004;
+        public static final int other=0x7f020005;
+        public static final int remote=0x7f020006;
     }
     public static final class id {
-        public static final int action_settings=0x7f080027;
+        public static final int action_new=0x7f080027;
         public static final int alignBounds=0x7f080002;
         public static final int alignMargins=0x7f080003;
         public static final int bottom=0x7f080004;
@@ -305,7 +306,7 @@ containing a value of this type.
     }
     public static final class string {
         public static final int accessories=0x7f050008;
-        public static final int action_settings=0x7f050002;
+        public static final int action_new=0x7f050002;
         public static final int add_name=0x7f050010;
         public static final int app_name=0x7f050000;
         public static final int category=0x7f050005;
