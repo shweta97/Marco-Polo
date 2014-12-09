@@ -17,5 +17,7 @@
     <string name="marco_polo_">Marco Polo !!!!</string>
     <string name="list_of_devices">List of devices</string>
     <string name="remote">Remote</string>
+    <string name="add_name">Add a name</string>
+    <string name="title_activity_display_message">My Message</string>
 
 </resources>
