@@ -1,6 +1,8 @@
 package isu.tej4m1.marcopolo;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -34,16 +36,13 @@ public class MainActivity extends ListActivity {
 		
 		SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
 		String defaultValue = getResources().getString(R.string.save);
-		String name1 = sharedPref.getString("isu.tej4m1.marcopolo.MainActivity.onActivityResult",defaultValue); 
-		item_list.add(name1);
+		Set defaultValue1=new HashSet(item_list);
+		Set<String> name1 = sharedPref.getStringSet("isu.tej4m1.marcopolo.MainActivity.onActivityResult",defaultValue1); 
 		
-		/*SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-int defaultValue = getResources().getInteger(R.string.saved_high_score_default);
-long highScore = sharedPref.getInt(getString(R.string.saved_high_score), defaultValue);
-*/
-	   item_list.add("Keys");
-	   item_list.add("Remote");
-	   item_list.add("Mobile");
+		name1.addAll(item_list);
+		item_list.clear();
+		item_list.addAll(name1);
+		
 	   adapter = new ArrayAdapter<String>(this,
 	        android.R.layout.simple_list_item_1, item_list);
 	   setListAdapter(adapter);
@@ -94,7 +93,8 @@ long highScore = sharedPref.getInt(getString(R.string.saved_high_score), default
 				
 				SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
 				SharedPreferences.Editor editor = sharedPref.edit();
-				editor.putString("isu.tej4m1.marcopolo.MainActivity.onActivityResult", name);
+				Set set = new HashSet(item_list);
+				editor.putStringSet("isu.tej4m1.marcopolo.MainActivity.onActivityResult",set);
 				editor.commit();
 			}
 		}
