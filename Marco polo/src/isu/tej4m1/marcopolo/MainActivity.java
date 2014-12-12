@@ -4,14 +4,15 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -28,9 +29,18 @@ public class MainActivity extends ListActivity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+		super.onCreate(savedInstanceState);		 
 		//setContentView(R.layout.activity_main);
 		
+		SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+		String defaultValue = getResources().getString(R.string.save);
+		String name1 = sharedPref.getString("isu.tej4m1.marcopolo.MainActivity.onActivityResult",defaultValue); 
+		item_list.add(name1);
+		
+		/*SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+int defaultValue = getResources().getInteger(R.string.saved_high_score_default);
+long highScore = sharedPref.getInt(getString(R.string.saved_high_score), defaultValue);
+*/
 	   item_list.add("Keys");
 	   item_list.add("Remote");
 	   item_list.add("Mobile");
@@ -80,11 +90,17 @@ public class MainActivity extends ListActivity {
 				//item.setText(name);
 				//Code for ArrayAdapter
 				item_list.add(name);
-				adapter.notifyDataSetChanged();
+				adapter.notifyDataSetChanged(); 
+				
+				SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
+				SharedPreferences.Editor editor = sharedPref.edit();
+				editor.putString("isu.tej4m1.marcopolo.MainActivity.onActivityResult", name);
+				editor.commit();
 			}
 		}
+		
+		
 	}
+	
 }
-
-
 

@@ -19,5 +19,6 @@
     <string name="remote">Remote</string>
     <string name="add_name">Add a name</string>
     <string name="title_activity_display_message">My Message</string>
+    <string name="save">Add a device</string>
 
 </resources>
